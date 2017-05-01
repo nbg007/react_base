@@ -17,9 +17,11 @@ class Home extends Component {
     }
 
     render() {
+        const {posts} = this.props
+
         return (
             <div>
-                <ul style={{'paddingLeft': 0}}>{this.props.posts.map(::this.renderItem)}</ul>
+                <ul style={{'paddingLeft': 0}}>{posts.map(::this.renderItem)}</ul>
             </div>
         )
     }
