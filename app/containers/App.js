@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import Header from '../components/Header'
 
 class App extends Component {
     static propTypes = {
-        children: React.PropTypes.node
+        children: PropTypes.node
     }
 
     constructor(props) {
