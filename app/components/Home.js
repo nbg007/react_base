@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 
 class Home extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     renderItem({title}, id) {
         let min = (this.props.currentPage - 1) * 10
         let max = min + 9
