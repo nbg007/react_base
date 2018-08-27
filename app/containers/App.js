@@ -6,10 +6,6 @@ class App extends Component {
         children: PropTypes.node
     }
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div className="container">
