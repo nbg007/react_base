@@ -24,8 +24,9 @@ export const requestFailed = () => ({
 export const fetchArticles = () => async (dispatch) => {
     try {
         dispatch(requestArticles())
-        let response = await fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=50')
-        let json = await response.json()
+        const response = await fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=50')
+        if (!response.ok) throw 'Response not OK'
+        const json = await response.json()
         dispatch(receiveArticles(json))
     } catch (e) {
         dispatch(requestFailed())
