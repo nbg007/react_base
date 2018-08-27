@@ -9,9 +9,6 @@ import Home from '../components/Home'
 import * as actionCreators from '../actions/index'
 
 class HomeContainer extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     componentDidMount() {
         this.props.fetchArticles()
