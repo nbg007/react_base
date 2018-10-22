@@ -28,24 +28,18 @@ class HomeContainer extends Component {
             <div>
                 <button className="btn btn-primary" onClick={::this.onRefreshClick}>Refresh</button>
                 {isFetching ? <h4>Loading..</h4> : <Home posts={posts} currentPage={currentPage}/>}
-                {isFetching ? null : <Pagination defaultCurrent={currentPage} total={posts.length} onChange={::this.handlePaginationChange}/>}
+                {!isFetching && <Pagination defaultCurrent={currentPage} total={posts.length} onChange={::this.handlePaginationChange}/>}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => {
-    const { posts, isFetching, currentPage } = state
+const mapStateToProps = ({ posts, isFetching, currentPage }) => ({
+    posts,
+    isFetching,
+    currentPage
+})
 
-    return {
-        posts,
-        isFetching,
-        currentPage,
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return bindActionCreators(actionCreators, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators(actionCreators, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
