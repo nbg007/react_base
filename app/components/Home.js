@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class Home extends Component {
+    static propTypes = {
+        posts: PropTypes.array.isRequired
+    }
+    
     renderItem({title}, id) {
-        let min = (this.props.currentPage - 1) * 10
-        let max = min + 9
+        const min = (this.props.currentPage - 1) * 10
+        const max = min + 9
         if(id >= min && id <= max) {
             return <li className="render-li" key={id}>{title}</li>
         } else {
