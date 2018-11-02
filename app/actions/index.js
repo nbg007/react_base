@@ -25,7 +25,7 @@ export const fetchArticles = () => async (dispatch) => {
     try {
         dispatch(requestArticles())
         const response = await fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=50')
-        if (!response.ok) throw 'Response not OK'
+        if (!response.ok) throw new Error('Response not OK')
         const json = await response.json()
         dispatch(receiveArticles(json))
     } catch (e) {
